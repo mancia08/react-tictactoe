@@ -5,23 +5,25 @@ export const MyContext = React.createContext();
 class MyProvider extends Component {
   state = {
     squares: [
-      { name: 0, isClicked: false },
-      { name: 1, isClicked: false },
-      { name: 2, isClicked: false },
-      { name: 3, isClicked: false },
-      { name: 4, isClicked: false },
-      { name: 5, isClicked: false },
-      { name: 6, isClicked: false },
-      { name: 7, isClicked: false },
-      { name: 8, isClicked: false },
+      { name: 0, isClicked: false, playerClicked: 0 },
+      { name: 1, isClicked: false, playerClicked: 0 },
+      { name: 2, isClicked: false, playerClicked: 0 },
+      { name: 3, isClicked: false, playerClicked: 0 },
+      { name: 4, isClicked: false, playerClicked: 0 },
+      { name: 5, isClicked: false, playerClicked: 0 },
+      { name: 6, isClicked: false, playerClicked: 0 },
+      { name: 7, isClicked: false, playerClicked: 0 },
+      { name: 8, isClicked: false, playerClicked: 0 },
     ],
     player: 0
   };
   click = (pizza) => {
       let newSquares= this.state.squares.slice();
+      let playerClicked = this.state.player===0 ? 1 : 2
       pizza.isClicked= true;
-      this.setState({squares: newSquares})
-      this.setState({player: this.state.player===0 ? 1 : 0})
+      pizza.playerClicked= playerClicked
+      this.setState({squares: newSquares, player: playerClicked}
+        )
   }
 /* NOT BREAKING CODE */
 /*   click = (pizza) => (
