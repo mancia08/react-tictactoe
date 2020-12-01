@@ -17,7 +17,7 @@ class MyProvider extends Component {
     ],
   };
 
-  click = (pizza) => console.log(pizza.name)
+  click = (pizza) => console.log((this.state.squares[pizza.name]))
 
   render() {
     return (
