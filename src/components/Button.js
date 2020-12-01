@@ -4,7 +4,8 @@ import { MyContext } from '../context/MyProvider';
 
 const Square = styled.button`
 background-color: ${
-p => p.isClicked && p.player ? "red" : "blue"}
+p => p.isClicked? p.player===1 ? "red" : "blue"
+: "grey"}
 `
 
 const Button = (props) =>
