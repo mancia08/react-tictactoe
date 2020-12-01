@@ -1,8 +1,13 @@
 import React from 'react';
-import { MyContext } from '../context/MyProvider';
+import styled from "styled-components"
+/* import { MyContext } from '../context/MyProvider'; */
 
-const Button = () =>
-  <h1>hey</h1>
+const Square = styled.button`
+
+`
+
+const Button = (props) =>
+  <Square>{props.text}</Square>
 
 
 export default Button;
