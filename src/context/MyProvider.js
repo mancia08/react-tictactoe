@@ -15,9 +15,22 @@ class MyProvider extends Component {
       { name: 7, isClicked: false },
       { name: 8, isClicked: false },
     ],
+    player: true
   };
+  click = (pizza) => {
+      let newSquares= this.state.squares.slice();
+      pizza.isClicked= true;
+      this.setState({squares: newSquares})
+      this.setState({player: !this.state.player})
+  }
+/* NOT BREAKING CODE */
+/*   click = (pizza) => (
+    pizza.isClicked= true
+) */
 
-  click = (pizza) => console.log((this.state.squares[pizza.name]))
+/*   console.log((this.state.squares[pizza.name])) */
+
+  /* console.log((this.state.squares[pizza.name])) */
 
   render() {
     return (
