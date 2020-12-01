@@ -14,7 +14,7 @@ const Board = () =>
     {value => (
         <GameBoard>
             {value.state.squares.map(square => 
-            <Button action={value.click} text={square} key= {square}/>
+            <Button action={()=> value.action(square)} text={square.name} key= {square.name}/>
             )}
         </GameBoard>
     )}
