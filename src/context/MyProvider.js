@@ -26,36 +26,35 @@ class MyProvider extends Component {
       { first: 0, second: 4, third: 8 },
       { first: 2, second: 4, third: 6 },
     ],
+    won:false
   };
 
-  click = (event) => {
-    if (event.isClicked === false) {
-      let newSquares = this.state.squares.slice();
-      event.isClicked = true;
-      event.playerClicked = this.state.player;
-      let newPlayer = this.state.player === 1 ? 2 : 1;
-      this.setState({ squares: newSquares, player: newPlayer });
-      this.win();
+
+  click = event => {
+    if (!event.isClicked) {
+      this.handleClick(event)
+      this.win()
     }
   };
 
+  handleClick = (event) => {
+    event.isClicked = true;
+      event.playerClicked = this.state.player;
+      let newPlayer = this.state.player === 1 ? 2 : 1;
+      this.setState({ player: newPlayer });
+  }
+
+
   win = () => {
-    this.state.winArr.map(e => {
-      this.state.squares[e.first].playerClicked ===
-      this.state.squares[e.second].playerClicked &&
-      this.state.squares[e.first].playerClicked ===
-        this.state.squares[e.third].playerClicked &&
-      console.log(`${this.state.squares[e.first].playerClicked} won`)
-    })
+    this.state.winArr.map(e => (
+      this.state.squares[e.first].playerClicked === this.state.squares[e.second].playerClicked &&
+      this.state.squares[e.first].playerClicked === this.state.squares[e.third].playerClicked &&
+
+      console.log(this.state.player)
+    ))
   };
 
-  /* win = () => {
-    this.state.squares[0].playerClicked ===
-      this.state.squares[1].playerClicked &&
-      this.state.squares[0].playerClicked ===
-        this.state.squares[2].playerClicked &&
-      console.log(`${this.state.squares[0].playerClicked} won`);
-  }; */
+
 
   render() {
     return (
