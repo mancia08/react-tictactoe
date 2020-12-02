@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import Game from './components/Game'
+import Board from './components/Board'
 import MyProvider from './context/MyProvider'
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <MyProvider>
         <div className="App">
-          <Game />
+          <Board />
         </div>
       </MyProvider>
     );

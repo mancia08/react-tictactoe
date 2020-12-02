@@ -15,27 +15,47 @@ class MyProvider extends Component {
       { name: 7, isClicked: false, playerClicked: false },
       { name: 8, isClicked: false, playerClicked: false },
     ],
-    player: 1
+    player: 1,
+    winArr: [
+      { first: 0, second: 1, third: 2 },
+      { first: 3, second: 4, third: 5 },
+      { first: 6, second: 7, third: 8 },
+      { first: 0, second: 3, third: 6 },
+      { first: 1, second: 4, third: 6 },
+      { first: 2, second: 5, third: 8 },
+      { first: 0, second: 4, third: 8 },
+      { first: 2, second: 4, third: 6 },
+    ],
   };
 
   click = (event) => {
-    if (event.isClicked===false)
-      {let newSquares= this.state.squares.slice();
-      event.isClicked= true;
-      event.playerClicked= this.state.player
-      let newPlayer = this.state.player === 1 ? 2 : 1
-      this.setState({squares: newSquares, player: newPlayer}
-        )}
-  }
+    if (event.isClicked === false) {
+      let newSquares = this.state.squares.slice();
+      event.isClicked = true;
+      event.playerClicked = this.state.player;
+      let newPlayer = this.state.player === 1 ? 2 : 1;
+      this.setState({ squares: newSquares, player: newPlayer });
+      this.win();
+    }
+  };
 
-/* NOT BREAKING CODE */
-/*   click = (pizza) => (
-    pizza.isClicked= true
-) */
+  win = () => {
+    this.state.winArr.map(e => {
+      this.state.squares[e.first].playerClicked ===
+      this.state.squares[e.second].playerClicked &&
+      this.state.squares[e.first].playerClicked ===
+        this.state.squares[e.third].playerClicked &&
+      console.log(`${this.state.squares[e.first].playerClicked} won`)
+    })
+  };
 
-/*   console.log((this.state.squares[pizza.name])) */
-
-  /* console.log((this.state.squares[pizza.name])) */
+  /* win = () => {
+    this.state.squares[0].playerClicked ===
+      this.state.squares[1].playerClicked &&
+      this.state.squares[0].playerClicked ===
+        this.state.squares[2].playerClicked &&
+      console.log(`${this.state.squares[0].playerClicked} won`);
+  }; */
 
   render() {
     return (
