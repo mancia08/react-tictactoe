@@ -15,15 +15,18 @@ class MyProvider extends Component {
       { name: 7, isClicked: false, playerClicked: false },
       { name: 8, isClicked: false, playerClicked: false },
     ],
-    player: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    player: 1
   };
+
   click = (pizza) => {
       let newSquares= this.state.squares.slice();
-      
       pizza.isClicked= true;
-      this.setState({squares: newSquares, player: this.state.player? 0: 1}
+      pizza.playerClicked= this.state.player
+      let newPlayer = this.state.player === 1 ? 2 : 1
+      this.setState({squares: newSquares, player: newPlayer}
         )
   }
+
 /* NOT BREAKING CODE */
 /*   click = (pizza) => (
     pizza.isClicked= true
