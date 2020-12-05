@@ -47,10 +47,13 @@ class MyProvider extends Component {
 
   win = () => {
     this.state.winArr.map(e => (
-      this.state.squares[e.first].playerClicked === this.state.squares[e.second].playerClicked &&
-      this.state.squares[e.first].playerClicked === this.state.squares[e.third].playerClicked &&
-
-      console.log(this.state.player)
+      this.state.squares[e.first].playerClicked ===
+      this.state.squares[e.second].playerClicked &&
+      this.state.squares[e.first].playerClicked ===
+      this.state.squares[e.third].playerClicked &&
+      this.state.squares[e.first].playerClicked &&
+        
+      this.setState({won: this.state.squares[e.first].playerClicked})
     ))
   };
 
